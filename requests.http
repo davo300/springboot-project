@@ -1,0 +1,11 @@
+### Create a task
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "Finish Spring Boot project",
+  "completed": false
+}
+
+### Get all tasks
+GET http://localhost:8080/tasks

@@ -1,13 +1,24 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 public class UserController {
 
-    @GetMapping("/api/user")
-    public User getUser() {
-        return new User("Matt", 22);
+    private final UserRepository repo;
+
+    public UserController(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return repo.findAll();
+    }
+
+    @PostMapping("/users")
+    public User create(@RequestBody User user) {
+        return repo.save(user);
     }
 }

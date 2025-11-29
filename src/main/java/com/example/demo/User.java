@@ -1,16 +1,13 @@
 package com.example.demo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Entity
+@Data
 public class User {
+    @Id
+    private Long id;
     private String name;
-    private int age;
-
-    // constructor
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    // getters
-    public String getName() { return name; }
-    public int getAge() { return age; }
 }
